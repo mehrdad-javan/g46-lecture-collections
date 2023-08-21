@@ -181,6 +181,26 @@ public class ArrayListDemo {
         for (Person person : people) {
             System.out.println(person);
         }
+
+
+        /*Collections.sort(people, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getFirstName().compareTo(o2.getFirstName()); //
+            }
+        });*/
+
+        // new way: lambda expression
+        Collections.sort(people, (p1, p2) -> p1.getFirstName().compareTo(p2.getFirstName()));
+        //  new way: method references
+        Collections.sort(people, Comparator.comparing(Person::getFirstName));
+
+
+        System.out.println("Sorted List By implementing a logic (first name)");
+        for (Person person : people) {
+            System.out.println(person);
+        }
+
     }
 
 
